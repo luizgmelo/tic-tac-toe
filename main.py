@@ -14,26 +14,29 @@ def printTicTacToe():
 
 print("="*30)
 player_one = str(input("Qual você quer ser X/O: "))
-player_one_plays = []
 if player_one in "xX":
     player_two = "O"
 else:
     player_two = "X"
 
-selected_play = []
+selected_play_one = []
 
 while True:
     play = int(input("Onde você quer jogar (1-9): "))
-    if play in selected_play:
+    if play in selected_play_one:
         print(f"{play} já foi selecionado. Tente outra jogada")
         continue
     
-    selected_play.append(play)
-    player_one_plays.append(play)
+    selected_play_one.append(play)
     matriz[play-1] = player_one 
 
     # Validar vitória
+    if len(selected_play_one) >= 3:
+        if matriz[0] == "X" and matriz[1] == "X" and matriz[2] == "X":
+            print("Venceu")
+            break
 
+    print(selected_play_one)
     printTicTacToe()
     
 
