@@ -19,51 +19,63 @@ if player_one in "xX":
 else:
     player_two = "X"
 
-selected_play_one = []
+selected_plays = []
 
-while True:
-    play = int(input("PLAYER ONE: Onde você quer jogar (1-9): "))
-    if play in selected_play_one:
-        print(f"{play} já foi selecionado. Tente outra jogada")
-        continue
+def playNow(player):
+    position = int(input(f"{player}: Onde você quer jogar (1-9): ")) 
     
-    selected_play_one.append(play)
-    matriz[play-1] = player_one 
+    if position in selected_plays:
+        print(f"{position} já foi selecionado. Tente outra jogada")
+        playNow(player) 
+
+    selected_plays.append(position)
+    matriz[position-1] = player 
     
     printTicTacToe()
 
-    # Validar vitória
-    if len(selected_play_one) >= 3:
-        if matriz[0] == "X" and matriz[1] == "X" and matriz[2] == "X":
-            print("Venceu")
-            break
-        elif matriz[3] == "X" and matriz[4] == "X" and matriz[5] == "X":
-            print("Venceu")
-            break
-        elif matriz[6] == "X" and matriz[7] == "X" and matriz[8] == "X":
-            print("Venceu")
-            break
-        elif matriz[0] == "X" and matriz[4] == "X" and matriz[8] == "X":
-            print("Venceu")
-            break
-        elif matriz[2] == "X" and matriz[4] == "X" and matriz[6] == "X":
-            print("Venceu")
-            break
-        elif matriz[0] == "X" and matriz[3] == "X" and matriz[6] == "X":
-            print("Venceu")
-            break
-        elif matriz[1] == "X" and matriz[4] == "X" and matriz[7] == "X":
-            print("Venceu")
-            break
-        elif matriz[2] == "X" and matriz[5] == "X" and matriz[8] == "X":
-            print("Venceu")
-            break
 
+def validateVictory(player): 
+    if len(selected_plays) >= 3:
+        if matriz[0] == player and matriz[1] == player and matriz[2] == player:
+            print("Venceu")
+            return True
+        elif matriz[3] == player and matriz[4] == player and matriz[5] == player:
+            print("Venceu")
+            return True
+        elif matriz[6] == player and matriz[7] == player and matriz[8] == player:
+            print("Venceu")
+            return True
+        elif matriz[0] == player and matriz[4] == player and matriz[8] == player:
+            print("Venceu")
+            return True
+        elif matriz[2] == player and matriz[4] == player and matriz[6] == player:
+            print("Venceu")
+            return True
+        elif matriz[0] == player and matriz[3] == player and matriz[6] == player:
+            print("Venceu")
+            return True
+        elif matriz[1] == player and matriz[4] == player and matriz[7] == player:
+            print("Venceu")
+            return True
+        elif matriz[2] == player and matriz[5] == player and matriz[8] == player:
+            print("Venceu")
+            return True
+        return False
 
-    #if len(selected_play_two) >= 3:
-    #    continue
+counter = 1
+while True: 
+    if counter % 2 != 0:
+        play = playNow(player_one)
+        won = validateVictory(player_one)
+    else:
+        playNow(player_two)
+        won = validateVictory(player_two)
+    
 
-    print(selected_play_one)
+    if won == True:
+        break
+    
+    counter += 1
   
     
 
