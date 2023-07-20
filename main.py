@@ -65,7 +65,7 @@ def validateVictory(player):
 counter = 1
 while True: 
     if counter % 2 != 0:
-        play = playNow(player_one)
+        playNow(player_one)
         won = validateVictory(player_one)
     else:
         playNow(player_two)
