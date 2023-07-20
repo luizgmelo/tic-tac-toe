@@ -49,6 +49,16 @@ while True:
         elif matriz[2] == "X" and matriz[4] == "X" and matriz[6] == "X":
             print("Venceu")
             break
+        elif matriz[0] == "X" and matriz[3] == "X" and matriz[6] == "X":
+            print("Venceu")
+            break
+        elif matriz[1] == "X" and matriz[4] == "X" and matriz[7] == "X":
+            print("Venceu")
+            break
+        elif matriz[2] == "X" and matriz[5] == "X" and matriz[8] == "X":
+            print("Venceu")
+            break
+
 
     #if len(selected_play_two) >= 3:
     #    continue
