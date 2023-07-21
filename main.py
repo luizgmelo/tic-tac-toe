@@ -1,15 +1,19 @@
 matriz = [
-          0,0,0,
-          0,0,0,
-          0,0,0
+          " "," "," ",
+          " "," "," ",
+          " "," "," "
          ]
 
 def printTicTacToe(): 
     count = 1
     for x in matriz:
-        print(x, end='')
-        if count % 3 == 0:
-            print("")
+        print(x, end=' ')
+        if count == 9:
+            print("\n")
+        elif count % 3 == 0:
+            print("\n----------")
+        else:
+            print("|", end=' ')
         count+=1
 
 print("="*30)
@@ -23,7 +27,7 @@ selected_plays = []
 
 def playNow(player):
     position = int(input(f"{player}: Onde você quer jogar (1-9): ")) 
-    
+    print("")
     if position in selected_plays:
         print(f"{position} já foi selecionado. Tente outra jogada")
         playNow(player) 
