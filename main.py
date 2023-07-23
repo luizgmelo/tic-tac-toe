@@ -70,6 +70,9 @@ def validateVictory(player):
         elif matriz[2] == player and matriz[5] == player and matriz[8] == player:
             print("Venceu")
             return True
+        elif len(selected_plays) == 9:
+            print("Empate")
+            return True
         return False
 
 counter = 1
