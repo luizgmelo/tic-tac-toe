@@ -15,14 +15,20 @@ def printTicTacToe():
         else:
             print("|", end=' ')
         count+=1
-
-print("="*30)
-player_one = str(input("Qual você quer ser X/O: ")).upper()
-if player_one in "xX":
-    player_two = "O"
-else:
-    player_two = "X"
-
+while True:
+    print("="*30)
+    player_one = str(input("Qual você quer ser X/O: ")).upper()
+    if player_one in "xX" and player_one != "":
+        player_one = "X"
+        player_two = "O"
+        break
+    elif player_one in "oO0" and player_one != "":
+        player_one = "O"
+        player_two = "X"
+        break
+    else:
+        print("Valor Inválido, Digite X ou O!")
+    
 selected_plays = []
 
 def playNow(player):
