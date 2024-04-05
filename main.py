@@ -20,14 +20,15 @@ def printTicTacToe():
 selected_plays = []
 
 def playNow(player):
-    position = int(input(f"{player}: Onde você quer jogar (1-9): ")) 
+    m = int(input(f"{player}: Em qual linha você quer jogar (1-3)"))
+    n = int(input(f"{player}: Em qual coluna você quer jogar (1-3): ")) 
     print("")
-    if position in selected_plays:
-        print(f"{position} já foi selecionado. Tente outra jogada")
+    if [m, n] in selected_plays:
+        print(f"linha {m} e coluna {n} já foi selecionado. Tente outra jogada")
         playNow(player) 
 
-    selected_plays.append(position)
-    matriz[position-1] = player 
+    selected_plays.append([m, n])
+    matrix[m-1][n-1] = player 
     
     printTicTacToe()
 
@@ -62,9 +63,23 @@ def validateVictory(player):
             print("Empate")
             return True
         return False
+while True:
+    print("="*30)
+    player_one = str(input("Qual você quer ser X/O: ")).upper()
+    if player_one in "xX" and player_one != "":
+        player_one = "X"
+        player_two = "O"
+        break
+    elif player_one in "oO0" and player_one != "":
+        player_one = "O"
+        player_two = "X"
+        break
+    else:
+        print("Valor Inválido, Digite X ou O!")
 
 counter = 1
 while True: 
+    printTicTacToe()
     if counter % 2 != 0:
         playNow(player_one)
         won = validateVictory(player_one)
