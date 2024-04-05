@@ -47,28 +47,28 @@ def playNow(player):
 def validateVictory(player): 
     if len(selected_plays) >= 3:
         if matriz[0] == player and matriz[1] == player and matriz[2] == player:
-            print("Venceu")
+            print(f"Venceu {player}")
             return True
         elif matriz[3] == player and matriz[4] == player and matriz[5] == player:
-            print("Venceu")
+            print(f"Venceu {player}")
             return True
         elif matriz[6] == player and matriz[7] == player and matriz[8] == player:
-            print("Venceu")
+            print(f"Venceu {player}")
             return True
         elif matriz[0] == player and matriz[4] == player and matriz[8] == player:
-            print("Venceu")
+            print(f"Venceu {player}")
             return True
         elif matriz[2] == player and matriz[4] == player and matriz[6] == player:
-            print("Venceu")
+            print(f"Venceu {player}")
             return True
         elif matriz[0] == player and matriz[3] == player and matriz[6] == player:
-            print("Venceu")
+            print(f"Venceu {player}")
             return True
         elif matriz[1] == player and matriz[4] == player and matriz[7] == player:
-            print("Venceu")
+            print(f"Venceu {player}")
             return True
         elif matriz[2] == player and matriz[5] == player and matriz[8] == player:
-            print("Venceu")
+            print(f"Venceu {player}")
             return True
         elif len(selected_plays) == 9:
             print("Empate")
