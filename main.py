@@ -1,33 +1,21 @@
-matriz = [
-          " "," "," ",
-          " "," "," ",
-          " "," "," "
+matrix = [
+          [" "," "," "],
+          [" "," "," "],
+          [" "," "," "],
          ]
 
 def printTicTacToe(): 
-    count = 1
-    for x in matriz:
-        print(x, end=' ')
-        if count == 9:
+    print()
+    for i in range(len(matrix)):
+        for j in range(len(matrix[i])):
+            if j == 0:
+                print(matrix[i][j], end="")
+                continue
+            print("|" + matrix[i][j], end="")
+        if i == len(matrix) - 1:
             print("\n")
-        elif count % 3 == 0:
-            print("\n----------")
-        else:
-            print("|", end=' ')
-        count+=1
-while True:
-    print("="*30)
-    player_one = str(input("Qual você quer ser X/O: ")).upper()
-    if player_one in "xX" and player_one != "":
-        player_one = "X"
-        player_two = "O"
-        break
-    elif player_one in "oO0" and player_one != "":
-        player_one = "O"
-        player_two = "X"
-        break
-    else:
-        print("Valor Inválido, Digite X ou O!")
+            continue
+        print("\n-----")
     
 selected_plays = []
 
