@@ -32,6 +32,12 @@ def playNow(player):
     
     printTicTacToe()
 
+def checkMainDiagonally(matrix, player):
+    m = 3
+    for i in range(0, m):
+        if matrix[i][i] != player:
+            return False
+    return True
 
 def validateVictory(player): 
     if len(selected_plays) >= 3:
